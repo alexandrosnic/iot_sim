@@ -12,7 +12,7 @@ if [ "$(docker ps -q -f name=${CONTAINER_NAME})" ]; then
   echo "Container '${CONTAINER_NAME}' is already running."
 else
   # Run the Ubuntu container and mount the specified directory
-  docker build -t $CONTAINER_NAME:0.0.1 .
+  docker build -f docker/Dockerfile -t $CONTAINER_NAME:0.0.1 . 
 
   # Enable X11 forwarding for the container
   XSOCK=/tmp/.X11-unix

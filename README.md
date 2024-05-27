@@ -26,13 +26,13 @@ For data we will use camera's images from NVidia's (r2b_hope dataset)[https://ca
 
 ### Steps
 
-1. Clone the repository
+**1. Clone the repository**
 ```
 $ git clone https://github.com/alexandrosnic/iot_sim.git
 $ cd iot_sim
 ```
 
-2. Build image and start docker
+**2. Build image and start docker**
 
 * This scripts will:
     * build the image
@@ -44,7 +44,14 @@ $ cd iot_sim
 $ ./start_docker.sh 
 ```
 
-3. Run the launch file 
+**3. Build the workspace**
+Run
+```
+colcon build
+source install/setup.bash
+```
+
+**4. Run the launch file**
 ```
 cd src/iot_sim_launch/launch/
 ros2 launch iot_simulation.launch.py
@@ -52,12 +59,12 @@ ros2 launch iot_simulation.launch.py
 
 Or run each node independently:
 
-3.1. Run the rosbag:
+**4.1. Run the rosbag**
 ```
 ros2 bag play data/r2b_hope.db3 --loop --rate 0.5
 ```
 
-3.2. Visualize the data
+**4.2. Visualize the data**
 
 Open another terminal and connect to the docker
 ```
@@ -68,7 +75,7 @@ Open Rviz2
 rviz2 -d camera_vis.rviz
 ```
 
-3.3. Run the logger
+**4.3. Run the logger**
 
 Open another terminal, connect to the docker, and then run the logger
 ```
@@ -76,7 +83,7 @@ docker exec -it iot-simulation bash
 ros2 run iot_logger iot_logger
 ```
 
-3.4. Run the uploader
+**4.4. Run the uploader**
 
 Open another terminal, connect to the docker, and then run the uploader
 ```
